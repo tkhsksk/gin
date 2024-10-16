@@ -4,12 +4,14 @@ import (
     "gorm.io/gorm"
 )
 
-type UserEntity struct {
+// Userモデルの定義
+type User struct {
     gorm.Model
     Name string
 }
 
-func GetAll() (datas []UserEntity) {
+// 各種db処理
+func GetAll() (datas []User) {
     result := Db.Find(&datas)
     if result.Error != nil {
         panic(result.Error)
@@ -17,7 +19,7 @@ func GetAll() (datas []UserEntity) {
     return
 }
 
-func GetOne(id int) (data UserEntity) {
+func GetOne(id int) (data User) {
     result := Db.First(&data, id)
     if result.Error != nil {
         panic(result.Error)
@@ -25,23 +27,25 @@ func GetOne(id int) (data UserEntity) {
     return
 }
 
-func (b *UserEntity) Create() {
+func (b *User) Create() {
     result := Db.Create(b)
     if result.Error != nil {
         panic(result.Error)
     }
 }
 
-func (b *UserEntity) Update() {
+func (b *User) Update() {
     result := Db.Save(b)
     if result.Error != nil {
         panic(result.Error)
     }
 }
 
-func (b *UserEntity) Delete() {
-    result := Db.Delete(b)
+func Search(word string) (datas []User) {
+    word = "%" + word + "%"
+    result := Db.Where("name LIKE ?", word).Find(&datas)
     if result.Error != nil {
         panic(result.Error)
     }
+    return
 }
