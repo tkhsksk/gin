@@ -13,11 +13,11 @@ var Db *gorm.DB
 
 func init() {
     // local用
-    user := "guest"
-    pw   := "DK4XMDVATL2N8448CMF9"
+    // user := "guest"
+    // pw   := "DK4XMDVATL2N8448CMF9"
     // 本番用
-    // user := "dev"
-    // pw   := "NMHLJMTS2LWHU28MFBVG"
+    user := "dev"
+    pw   := "NMHLJMTS2LWHU28MFBVG"
     db_name := "gin"
 
     // 情報を元にdb接続
