@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Sample App</title>
+{{ template "head" }}
+<title>Gin｜{{ .title }}</title>
 </head>
 <body>
+    {{ template "header" }}
     <form method="POST" action="/user" id="create_form">
         <p>名前： <input type="text" name="name" value="" /></p>
     </form>

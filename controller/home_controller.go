@@ -6,5 +6,5 @@ import (
 
 func Home(c *gin.Context) {
     // トップページ
-    c.HTML(200, "index.html", gin.H{})
+    c.HTML(200, "index.html", gin.H{"title": "ホーム",})
 }

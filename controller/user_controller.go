@@ -9,7 +9,10 @@ import (
 
 func CreateUser(c *gin.Context) {
     datas := model.GetAll()
-    c.HTML(200, "user.html", gin.H{"datas": datas})
+    c.HTML(200, "user.html", gin.H{
+        "datas": datas,
+        "title": "ユーザ作成",
+    })
 }
 
 func CreateProcess(c *gin.Context) {
@@ -25,7 +28,10 @@ func EditUser(c *gin.Context) {
     id, _ := strconv.Atoi(c.Param("id"))
     data := model.GetOne(id)
     // dataを受け渡し
-    c.HTML(200, "edit.html", gin.H{"data": data})
+    c.HTML(200, "edit.html", gin.H{
+        "data": data,
+        "title": "ユーザ編集",
+    })
 }
 
 func EditProcess(c *gin.Context) {
@@ -43,6 +49,10 @@ func EditProcess(c *gin.Context) {
 func SearchUser(c *gin.Context) {
     name := c.Query("name")
     datas := model.Search(name)
-    c.HTML(200, "search.html", gin.H{"datas":datas, "query":name})
+    c.HTML(200, "search.html", gin.H{
+        "datas":datas,
+        "query":name,
+        "title": "ユーザ検索",
+    })
 }
 

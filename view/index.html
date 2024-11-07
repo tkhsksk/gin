@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Sample App</title>
+{{ template "head" }}
+<title>Gin｜{{ .title }}</title>
 </head>
 <body>
+    {{ template "header" }}
     <p>Hello World.</p>
 </body>
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Sample App</title>
+{{ template "head" }}
+<title>Gin｜{{ .title }}</title>
 </head>
 <body>
+    {{ template "header" }}
     <form method="POST" action="/edit" id="edit_form">
             <input type="hidden" name="id" value="{{ .data.ID }}" />
             <p>名前： <input type="text" name="name" value="{{.data.Name}}" /></p>
